@@ -3,69 +3,62 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Вкусный знак — ready</title>
+<title>Вкусный знак — корзина старт</title>
 <style>
-:root{--bg:#f7f0e0;--card:#ffffff;--text:#173c29;--green:#0a7f45;--green2:#0f9a58;--shadow:0 8px 24px rgba(0,0,0,.08);--radius:20px}
+:root{--bg:#f7f0e0;--card:#ffffff;--text:#173c29;--green:#0a7f45;--shadow:0 8px 22px rgba(0,0,0,.08);--radius:20px;--glow:0 6px 16px rgba(10,127,69,.4)}
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter, system-ui, -apple-system, Arial, sans-serif}
-.header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:rgba(255,255,255,.9);backdrop-filter:blur(2px);position:sticky;top:0;z-index:10}
-.brand{font-weight:800;letter-spacing:.2px}
-.brand .logo{display:inline-block;width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#87d98b,#4b9d53);margin-right:8px;vertical-align:middle}
+body{margin:0;background:var(--bg);font-family:Inter, system-ui, -apple-system, Arial, sans-serif;color:var(--text)}
+.header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);box-shadow:0 3px 12px rgba(0,0,0,.05);}
+.header .wrap{max-width:680px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:900;letter-spacing:.2px}
+.logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#6bd389,#2f8a46);display:inline-block;margin-right:8px;vertical-align:middle}
 .main{max-width:680px;margin:20px auto;padding:0 16px}
-.hero{background:#fff; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); display:flex; align-items:center; gap:16px}
-.hero h1{font-size:28px; margin:0}
-.hero .tag{background:#d5f7a3;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800}
-.list{margin-top:18px;background:#fff; border-radius:14px; padding:8px 0; box-shadow:0 6px 16px #00000012}
-.item{display:flex;gap:12px;align-items:center;padding:12px 14px;border-bottom:1px solid #eee}
-.item:last-child{border-bottom:0}
-.icon{width:34px;height:34px;border-radius:9px;background:#f0f6ea;display:grid;place-items:center;font-size:20px}
-.name{flex:1;font-weight:700}
-.price{font-weight:800;color:#0a6a3b}
-.total{display:flex;justify-content:space-between;align-items:center;padding:16px 14px;font-size:22px;font-weight:800;}
-.actions{display:grid;gap:12px;margin:14px 0 4px}
-.btn{border-radius:999px;padding:14px 18px;border:0;font-weight:900;font-size:15px;cursor:pointer}
-.btn.green{background:linear-gradient(135deg,#28d05a,#0a8f3f);color:white;box-shadow:0 6px 16px #0a6b2e88}
-.btn.ghost{background:transparent;border:2px solid #d7e8d0;color:#0a6b2e}
-.btn.green:active{transform:translateY(2px) scale(0.98)}
-.note{font-size:12px;color:#6b756d;margin:6px 0 8px;text-align:center}
-@media (max-width: 720px){
-  .main{max-width: 420px}
-  .hero{flex-direction:column;align-items:flex-start}
+.card{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;gap:14px}
+.hero{display:flex;gap:14px;align-items:center}
+.hero h2{margin:0;font-size:22px}
+.hero img{width:120px;height:auto}
+.sep{height:1px;background:#eee;border-radius:1px}
+.section{display:flex;flex-direction:column;gap:12px}
+.section h3{margin:0;font-size:14px;color:#6b756d}
+.items{display:flex;flex-direction:column;gap:10px}
+.item{display:flex;justify-content:space-between;align-items:center;background:#f7f7f2;border-radius:14px;padding:12px 14px}
+.left{display:flex;gap:10px;align-items:center}
+.icon{width:32px;height:32px;display:grid;place-items:center;background:#f0f7ea;border-radius:8px}
+.price{font-weight:800;color:#0a6a3c}
+.total{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-radius:14px;background:#e9f7e2;font-size:20px;font-weight:900}
+.btns{display:flex;flex-direction:column;gap:12px}
+.btn{border-radius:999px;padding:14px 20px;border:0;font-weight:900;cursor:pointer}
+.btn.primary{background:linear-gradient(135deg,#20c35a,#0a7f45);color:white;box-shadow:0 6px 14px rgba(10,127,69,.4)}
+.btn.secondary{background:#fff; border:1px solid #d6e6cc}
+.note{font-size:12px;color:#6f7a6a;text-align:center}
+@media (max-width: 700px){
+  .hero{flex-direction:row}
+  .card{padding:16px}
 }
 </style>
 </head>
 <body>
-<div class="header"><div class="brand"><span class="logo" aria-label="logo"></span>Вкусный знак</div><div class="subnav"></div></div>
-<div class="main">
-  <section class="hero" aria-label="Итоги корзины">
-    <div class="tag">Готово! Корзина собрана</div>
-    <div style="flex:1">
-      <h1>Всё нужное. Уже в корзине.</h1>
-      <div class="note">Ужин сегодня · 6 шт.</div>
+<header class="header"><div class="wrap"><div class="brand"><span class="logo"></span>Вкусный знак</div><div class="brand-sub" style="color:#6b756d;font-size:12px">Корзина старт</div></div></header>
+<main class="main">
+  <section class="card" aria-label="Начало корзины">
+    <div class="hero"><span class="tag" style="background:#e7fbd2;border-radius:999px;padding:6px 12px;font-weight:800">Готово</span><h2 style="margin:0">Ваши товары уже в корзине</h2><img src="./1.png" alt="маскот"/></div>
+    <div class="section">
+      <h3>Сводка</h3>
+      <div class="items">
+        <div class="item"><div class="left"><div class="icon">🥗</div><div>Фасоль красная</div></div><div class="price">139 ₽</div></div>
+        <div class="item"><div class="left"><div class="icon">🍝</div><div>Макароны</div></div><div class="price">129 ₽</div></div>
+        <div class="item"><div class="left"><div class="icon">🥛</div><div>Молоко 3,2%</div></div><div class="price">89 ₽</div></div>
+      </div>
     </div>
-    <img src="./1.png" alt="маскот" style="width:120px;height:auto;object-fit:contain;">
+    <div class="total"><span>Итого</span><span>357 ₽</span></div>
+    <div class="btns">
+      <button class="btn primary" onclick="alert('Перейти к корзине')">Перейти к корзине</button>
+      <button class="btn secondary" onclick="alert('Редактировать корзину')">Редактировать корзину</button>
+      <button class="btn primary" style="background:linear-gradient(135deg,#0fbf62,#0a8f43)" onclick="alert('Заказать доставку')">Заказать доставку</button>
+    </div>
+    <div class="note">Это стартовая корзина — без добавления новых товаров.</div>
   </section>
-
-  <section class="list" aria-label="Список товаров">
-    <div class="item"><div class="icon">🥬</div><div class="name">Фасоль красная</div><div class="price">139 ₽</div></div>
-    <div class="item"><div class="icon">🍝</div><div class="name">Макароны</div><div class="price">129 ₽</div></div>
-    <div class="item"><div class="icon">🥛</div><div class="name">Молоко 3,2%</div><div class="price">89 ₽</div></div>
-    <div class="item"><div class="icon">🍪</div><div class="name">Печенье</div><div class="price">199 ₽</div></div>
-    <div class="item"><div class="icon">🍞</div><div class="name">Хлеб зерновой</div><div class="price">99 ₽</div></div>
-    <div class="item"><div class="icon">🌶</div><div class="name">Соус томатный</div><div class="price">149 ₽</div></div>
-  </section>
-
-  <div class="total" aria-label="Итого">
-    <span>Итого</span><span>804 ₽</span>
-  </div>
-
-  <div class="actions">
-    <button class="btn green" onclick="alert('Хочу дешевле — функция доступна в версии проекта')">Хочу дешевле</button>
-    <button class="btn ghost" onclick="alert('Редактировать корзину — вернёт к списку и позволит менять состав')">Редактировать корзину</button>
-    <button class="btn green" onclick="alert('Заказать доставку — переход в оформление')">Заказать доставку • 804 ₽</button>
-  </div>
-  <div class="note">Стоимость товаров без доставки.</div>
-</div>
+</main>
 </body>
 </html>
