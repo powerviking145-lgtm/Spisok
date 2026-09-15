@@ -3,62 +3,49 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Вкусный знак — корзина старт</title>
+<title>Cart Start - Recovery</title>
 <style>
-:root{--bg:#f7f0e0;--card:#ffffff;--text:#173c29;--green:#0a7f45;--shadow:0 8px 22px rgba(0,0,0,.08);--radius:20px;--glow:0 6px 16px rgba(10,127,69,.4)}
+:root{--bg:#f7f0e0;--card:#fff;--text:#173c29;--green:#0a7f45;--radius:18px;--shadow:0 8px 22px rgba(0,0,0,.08)}
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--bg);font-family:Inter, system-ui, -apple-system, Arial, sans-serif;color:var(--text)}
-.header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);box-shadow:0 3px 12px rgba(0,0,0,.05);}
-.header .wrap{max-width:680px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-.brand{font-weight:900;letter-spacing:.2px}
-.logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#6bd389,#2f8a46);display:inline-block;margin-right:8px;vertical-align:middle}
-.main{max-width:680px;margin:20px auto;padding:0 16px}
-.card{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;gap:14px}
-.hero{display:flex;gap:14px;align-items:center}
-.hero h2{margin:0;font-size:22px}
-.hero img{width:120px;height:auto}
-.sep{height:1px;background:#eee;border-radius:1px}
-.section{display:flex;flex-direction:column;gap:12px}
-.section h3{margin:0;font-size:14px;color:#6b756d}
-.items{display:flex;flex-direction:column;gap:10px}
-.item{display:flex;justify-content:space-between;align-items:center;background:#f7f7f2;border-radius:14px;padding:12px 14px}
-.left{display:flex;gap:10px;align-items:center}
-.icon{width:32px;height:32px;display:grid;place-items:center;background:#f0f7ea;border-radius:8px}
-.price{font-weight:800;color:#0a6a3c}
-.total{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-radius:14px;background:#e9f7e2;font-size:20px;font-weight:900}
-.btns{display:flex;flex-direction:column;gap:12px}
-.btn{border-radius:999px;padding:14px 20px;border:0;font-weight:900;cursor:pointer}
-.btn.primary{background:linear-gradient(135deg,#20c35a,#0a7f45);color:white;box-shadow:0 6px 14px rgba(10,127,69,.4)}
-.btn.secondary{background:#fff; border:1px solid #d6e6cc}
-.note{font-size:12px;color:#6f7a6a;text-align:center}
-@media (max-width: 700px){
-  .hero{flex-direction:row}
-  .card{padding:16px}
-}
+.header{padding:14px 16px;background:rgba(255,255,255,.95);position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}
+.brand{font-weight:800}
+.main{max-width:720px;margin:18px auto;padding:0 16px}
+.card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:18px;}
+.cart{display:flex;gap:12px;flex-direction:column}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px 8px;border-bottom:1px solid #eee}
+.icon{width:34px;height:34px;border-radius:9px;background:#f0f6ea;display:grid;place-items:center}
+.name{font-weight:700}
+.price{font-weight:800}
+.actions{display:flex;gap:12px;margin-top:8px}
+.btn{border-radius:999px;padding:12px 16px;font-weight:800;cursor:pointer;border:0}
+.btn.primary{background:linear-gradient(135deg,#0fbf62,#0a7f45);color:white}
+.btn.secondary{background:white;border:1px solid #d8e5cc}
+.total{display:flex;justify-content:space-between;font-size:22px;font-weight:900;margin-top:8px}
+@media (max-width: 700px){.main{padding:0 8px}}
 </style>
 </head>
 <body>
-<header class="header"><div class="wrap"><div class="brand"><span class="logo"></span>Вкусный знак</div><div class="brand-sub" style="color:#6b756d;font-size:12px">Корзина старт</div></div></header>
+<header class="header"><div class="brand">Cart Recovery</div></header>
 <main class="main">
-  <section class="card" aria-label="Начало корзины">
-    <div class="hero"><span class="tag" style="background:#e7fbd2;border-radius:999px;padding:6px 12px;font-weight:800">Готово</span><h2 style="margin:0">Ваши товары уже в корзине</h2><img src="./1.png" alt="маскот"/></div>
-    <div class="section">
-      <h3>Сводка</h3>
-      <div class="items">
-        <div class="item"><div class="left"><div class="icon">🥗</div><div>Фасоль красная</div></div><div class="price">139 ₽</div></div>
-        <div class="item"><div class="left"><div class="icon">🍝</div><div>Макароны</div></div><div class="price">129 ₽</div></div>
-        <div class="item"><div class="left"><div class="icon">🥛</div><div>Молоко 3,2%</div></div><div class="price">89 ₽</div></div>
-      </div>
+  <section class="card">
+    <div class="cart">
+      <div class="cart-item"><span class="name">1. Фасоль красная</span><span class="price">139 ₽</span></div>
+      <div class="cart-item"><span class="name">2. Макароны</span><span class="price">129 ₽</span></div>
+      <div class="cart-item"><span class="name">3. Молоко 3,2%</span><span class="price">89 ₽</span></div>
+      <div class="cart-item"><span class="name">4. Печенье</span><span class="price">199 ₽</span></div>
+      <div class="cart-item"><span class="name">5. Хлеб зерновой</span><span class="price">99 ₽</span></div>
+      <div class="cart-item"><span class="name">6. Соус томатный</span><span class="price">149 ₽</span></div>
+      <div class="total"><span>Итого</span><span>804 ₽</span></div>
     </div>
-    <div class="total"><span>Итого</span><span>357 ₽</span></div>
-    <div class="btns">
-      <button class="btn primary" onclick="alert('Перейти к корзине')">Перейти к корзине</button>
+    <div class="actions" style="justify-content:stretch">
+      <button class="btn primary" onclick="alert('Заказать доставку')">Заказать доставку</button>
       <button class="btn secondary" onclick="alert('Редактировать корзину')">Редактировать корзину</button>
-      <button class="btn primary" style="background:linear-gradient(135deg,#0fbf62,#0a8f43)" onclick="alert('Заказать доставку')">Заказать доставку</button>
+      <button class="btn primary" onclick="alert('Хочу дешевле')">Хочу дешевле</button>
     </div>
-    <div class="note">Это стартовая корзина — без добавления новых товаров.</div>
   </section>
+  <p class="note" style="text-align:center">Это упрощённая стартовая корзина.</p>
 </main>
 </body>
 </html>
